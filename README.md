@@ -1,22 +1,4 @@
-# 仿微信小程序-豆瓣评分
-
-## 预览
-
-首页
-
-![image](https://luchanan.github.io/mpvue-douban-pingfen/preview/20180711000512.jpg)
-
-列表
-
-![image](https://luchanan.github.io/mpvue-douban-pingfen/preview/20180711000518.jpg)
-
-详情
-
-![image](https://luchanan.github.io/mpvue-douban-pingfen/preview/20180711000525.jpg)
-
-我的
-
-![image](https://luchanan.github.io/mpvue-douban-pingfen/preview/20180711000529.jpg)
+# 微信小程序-书影音社区
 
 ## 使用
 
