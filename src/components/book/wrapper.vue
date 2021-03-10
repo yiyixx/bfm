@@ -1,16 +1,15 @@
 <template>
-  <div class="film-items-wrap">
-    <div class="film-items-more-wrap">
-      <div class="film-items-more weui-cells weui-cells_after-title">
+  <div class="book-items-wrap">
+    <div class="book-items-more-wrap">
+      <div class="book-items-more weui-cells weui-cells_after-title">
         <div class="weui-cell weui-cell_access">
           <div class="weui-cell__bd">{{title}}</div>
-          <!--不支持:url="`/pages/list/list?title=${title}`"-->
-          <navigator :url="'/pages/list/list?title=' + title + '&listApi=' + listApi" hover-class="navigator-hover" class="weui-cell__ft weui-cell__ft_in-access">{{moreText}}</navigator>
-        </div>
+          <navigator url="/pages/book_list/book_list" hover-class="navigator-hover" class="weui-cell__ft weui-cell__ft_in-access">{{moreText}}</navigator>
+        </div> 
       </div>
     </div>
     <scroll-view scroll-x style="width: 100%">
-      <items :list-api="listApi" />
+      <!-- <items></items> -->
     </scroll-view>
   </div>
 </template>
@@ -33,34 +32,34 @@ export default {
     moreText: {
       type: String,
       default: '更多'
-    },
-    moreUrl: {
-      type: String,
-      default: ''
-    },
-    listApi: {
-      type: String,
-      require: true
-    },
-    passParams: {
-      type: Object
     }
-  }
+//     moreUrl: {
+//       type: String,
+//       default: ''
+//     },
+//     listApi: {
+//       type: String,
+//       require: true
+//     },
+//     passParams: {
+//       type: Object
+//     }
+   }
 }
 </script>
 
 <style lang="stylus" scoped>
   @import '~@/stylus/variable'
-  .film-items-wrap
+  .book-items-wrap
     background #fff
     margin-bottom 15px
     &:last-child
       margin-bottom 0
-  .film-items-more-wrap
+  .book-items-more-wrap
     padding 15px 0
     .weui-cell
       font-size 15px
-    .film-items-more
+    .book-items-more
       .weui-cell__ft
         color $green
         font-size 15px

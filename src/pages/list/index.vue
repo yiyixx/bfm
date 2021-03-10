@@ -53,7 +53,7 @@ export default {
     },
     loading (params) {
       this.itemLoding = true
-    },
+    }
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <ul :class="useFloat ? 'film-items film-items-float clearfix' : 'film-items clearfix'">
     <li v-for="(filmItem, filmIndex) in list" :key="filmIndex">
-      <navigator v-if="filmItem.id" :url="'/pages/detail/detail?id=' + filmItem.id + '&type=' + filmItem.type" hover-class="navigator-hover">
+      <navigator v-if="filmItem && filmItem.id" :url="'/pages/detail/detail?id=' + filmItem.id + '&type=' + filmItem.type" hover-class="navigator-hover">
         <div class="thumbnail">
           <img :src="filmItem.cover.url">
         </div>
@@ -63,6 +63,7 @@ export default {
       this.$emit('loading', {loading: this.loading})
       this.page.current += 1
       API.getFilm({listApi: this.listApi, data: this.passParams}).then(res => {
+        console.log(this.list, res)
         this.list = this.list.concat(res.data.subject_collection_items)
         this.loading = false
         this.page.total = Math.ceil(res.data.total / this.page.size)

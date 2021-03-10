@@ -43,7 +43,7 @@ export default {
         },
         {
           pagePath: 'pages/film/film',
-          text: '电影',
+          text: '影视',
           iconPath: 'static/images/tabbar/film.png',
           selectedIconPath: 'static/images/tabbar/film_on.png'
         },

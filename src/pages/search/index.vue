@@ -45,27 +45,27 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       inputShowed: false,
-      inputVal: ""
+      inputVal: ''
     }
   },
   methods: {
-    showInput() {
+    showInput () {
       this.inputShowed = true;
     },
-    hideInput() {
+    hideInput () {
       this.inputVal = '';
       this.inputShowed = false;
     },
-    clearInput() {
+    clearInput () {
       this.inputVal = '';
     },
-    inputTyping(e) {
+    inputTyping (e) {
       console.log(e);
       this.inputVal = e.mp.detail.value;
-      console.log('输入信息为：'+e.mp.detail.value);
+      console.log('输入信息为：' + e.mp.detail.value);
     }
   }
 }

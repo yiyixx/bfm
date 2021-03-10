@@ -15,7 +15,7 @@ export function getFilm (params) {
 }
 
 export function getFilmDetail (params) {
-  // 详情
+  // 影视详情
   let newParams = Object.assign({}, defaultParams, params)
   return fetch({
     url: `${urlPrefix}/rexxar/api/v2/${newParams.type}/${newParams.id}`,
@@ -24,7 +24,7 @@ export function getFilmDetail (params) {
 }
 
 export function getShortComment (params) {
-  // 短评
+  // 电影短评
   let newParams = Object.assign({}, defaultParams, params)
   return fetch({
     url: `${urlIntro}/api/v2/${newParams.type}/${newParams.id}/interests?count=5&apikey=${apikey}`,

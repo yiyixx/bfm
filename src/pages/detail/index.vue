@@ -47,7 +47,7 @@ import shortComment from './shortComment'
 import filmComment from './filmComment'
 import filmStar from '@/components/film/star'
 export default {
-  data() {
+  data () {
     return {
       detail: {},
       loading: false,
@@ -74,8 +74,8 @@ export default {
         wx.hideNavigationBarLoading()
         wx.hideLoading()
         this.loading = false
-        res.data.genres =  res.data.genres.join(' / ')
-        res.data.countries =  res.data.countries.join(' / ')
+        res.data.genres = res.data.genres.join(' / ')
+        res.data.countries = res.data.countries.join(' / ')
         let actors = []
         let actors3 = (res.data.actors.splice(0, 3))
         actors3.forEach(items => {

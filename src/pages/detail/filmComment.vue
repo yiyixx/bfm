@@ -15,7 +15,7 @@
 import * as API from '@/api'
 import filmStarTwo from '@/components/film/star'
 export default {
-  data() {
+  data () {
     return {
       detail: {
         total: 0,

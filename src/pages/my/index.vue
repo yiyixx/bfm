@@ -9,8 +9,9 @@
 </template>
 
 <script>
+import {saveOpenId} from '../../api/user'
 export default {
-  data() {
+  data () {
     return {
       hideLogin: true,
       nickName: '未登录',
@@ -27,15 +28,43 @@ export default {
           console.log(uInfo, 'uInfo')
           if (uInfo) {
             uInfo = JSON.parse(uInfo)
-            this.nickName = uInfo.nickName 
-            this.imgSrc = uInfo.avatarUrl 
+            this.nickName = uInfo.nickName
+            this.imgSrc = uInfo.avatarUrl
+            this.hideLogin = false
             return
           }
           wx.showNavigationBarLoading()
           wx.getUserInfo({
             success: (res) => {
-              this.nickName = res.userInfo.nickName 
-              this.imgSrc = res.userInfo.avatarUrl 
+              let code = null
+              wx.login({
+                success: function (res) {
+                  code = res.code
+                  console.log('code:', code, res)
+                  wx.request({
+                    url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wxa1dbcf33cd13d747' + '&secret=d1cd2efa11aeb99b08100d7cdb4c71d6&js_code=' + code + '&grant_type=authorization_code',
+                    data: {},
+                    header: {
+                        'content-type': 'application/json'
+                    },
+                    success: function (res) {
+                      console.log(res, 'openid')
+                      console.log(res.data.openid)
+                      saveOpenId({
+                        openId: res.data.openid
+                      }).then(res => {
+                          console.log(res, 111)
+                        }).catch(err => {
+                            console.log(err)
+                          })
+                    }
+
+                  })
+                }
+              })
+
+              this.nickName = res.userInfo.nickName
+              this.imgSrc = res.userInfo.avatarUrl
               wx.hideNavigationBarLoading()
               wx.setStorageSync('getUserInfoSuccess', JSON.stringify(res.userInfo))
               console.log(res)
@@ -46,7 +75,7 @@ export default {
           // 引导用户登录授权
           console.log('尚未授权登录')
           wx.removeStorageSync('getUserInfoSuccess')
-          this.nickName = '未登录' 
+          this.nickName = '未登录'
           this.imgSrc = '/static/images/default.png'
           // wx.navigateTo({url: '/pages/login/login'})
         }

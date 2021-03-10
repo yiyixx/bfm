@@ -7,13 +7,13 @@
 <script>
 import searchBars from '@/components/film/search'
 export default {
-  data() {
+  data () {
     return {
       items: [
         {title: '近期上映', listApi: 'movie_showing'},
         {title: '热门电影', listApi: 'movie_hot_gaia'},
         {title: '电视剧', listApi: 'tv_hot'},
-        {title: '综艺', listApi: 'tv_variety_show'},
+        {title: '综艺', listApi: 'tv_variety_show'}
       ]
     }
   },
@@ -25,7 +25,7 @@ export default {
     // 导航...点击, 转发分享
     return {
       title: 'github',
-      path: 'https://github.com/luchanan/mpvue-douban-pingfen',
+      path: 'https://github.com/yiyixx/bfm',
       imageUrl: ''
     }
   },

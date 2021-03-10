@@ -1,38 +1,31 @@
 <template>
-  <div class="page-home">
+  <div class="book-home">
     <searchBars></searchBars>
+    <book-items-wrapper :title="item.title" v-for="(item, index) in items" :key="index"></book-items-wrapper>
   </div>
 </template>
 
 <script>
-import searchBars from '@/components/film/search'
+import searchBars from '../../components/film/search'
+import BookItemsWrapper from '../../components/book/wrapper'
 export default {
-  data() {
+  data () {
     return {
       items: [
-        {title: '近期上映', listApi: 'movie_showing'},
-        {title: '热门电影', listApi: 'movie_hot_gaia'},
-        {title: '电视剧', listApi: 'tv_hot'},
-        {title: '综艺', listApi: 'tv_variety_show'},
+        {title: '经典著作', listInter: '接口1'},
+        {title: '计算机图书', listInter: '接口2'},
+        {title: '热门小说', listInter: '接口3'}
       ]
     }
   },
   components: {
-    searchBars
-  },
-  onShareAppMessage () {
-    // https://developers.weixin.qq.com/miniprogram/dev/api/share.html?search-key=%E5%88%86%E4%BA%AB
-    // 导航...点击, 转发分享
-    return {
-      title: 'github',
-      path: 'https://github.com/luchanan/mpvue-douban-pingfen',
-      imageUrl: ''
-    }
-  },
-  methods: {
+    searchBars,
+    BookItemsWrapper
   }
+
 }
 </script>
 
-<style lang="stylus" scoped>
+<style scoped>
+
 </style>
